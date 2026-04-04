@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #111827;
+            margin-top: 30px;
+            border-left: 5px solid #2563eb;
+            padding-left: 10px;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #e5e7eb;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f1f5f9;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        form {
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            width: 200px;
+            outline: none;
+            background: white;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37,99,235,0.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #dc2626;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Admin Panel 🛠</h1>
+
+<hr>
+
+<h2>All Users 👥</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Account</th>
+        <th>Balance</th>
+        <th>Type</th>
+    </tr>
+
+    {% for u in users %}
+    <tr>
+        <td>{{ u[0] }}</td>
+        <td>{{ u[1] }}</td>
+        <td>{{ u[2] }}</td>
+        <td>{{ u[4] }}</td>
+        <td>{{ u[5] }}</td>
+        <td>{{ u[6] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<hr>
+
+<h2>Deposit 💰</h2>
+<form method="POST" action="/admin/deposit">
+    <input type="text" name="account_number" placeholder="Account Number" required>
+    <input type="number" name="amount" placeholder="Amount" required>
+    <button type="submit">Deposit</button>
+</form>
+
+<hr>
+
+<h2>Withdraw 💸</h2>
+<form method="POST" action="/admin/withdraw">
+    <input type="text" name="account_number" placeholder="Account Number" required>
+    <input type="number" name="amount" placeholder="Amount" required>
+    <button type="submit">Withdraw</button>
+</form>
+
+<hr>
+
+<h2>Delete User ❌</h2>
+<form method="POST" action="/admin/delete_user">
+    <input type="text" name="user_id" placeholder="User ID" required>
+    <button type="submit">Delete</button>
+</form>
+
+<hr>
+
+<h2>Change User Password 🔐</h2>
+
+<form method="POST" action="/admin/change_password">
+    <input type="text" name="user_id" placeholder="User ID" required>
+    <input type="text" name="new_password" placeholder="New Password" required>
+    <button type="submit">Change Password</button>
+</form>
+
+<a href="/logout">Logout</a>
+
+</div>
+
+</body>
+</html>

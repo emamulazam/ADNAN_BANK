@@ -1,33 +1,182 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard - Bank</title>
-  <link rel="stylesheet" href="style.css">
+    <title>User Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-left: 5px solid #2563eb;
+            padding-left: 10px;
+        }
+
+        h3 {
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+        .card {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #e5e7eb;
+            margin: 25px 0;
+        }
+
+        form {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            width: 200px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37,99,235,0.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            color: #2563eb;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .logout {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ef4444;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logout:hover {
+            color: #dc2626;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="container">
 
-  <h2>💰 Dashboard</h2>
+<h1>Welcome {{ name }} 🧾</h1>
 
-  <div class="card">
-    <h3>Check Balance</h3>
-    <input type="text" placeholder="Account Number">
-    <button>View Balance</button>
-  </div>
+<div class="card info-grid">
+    <h3>Your Account: {{ account }}</h3>
+    <h3>Balance: {{ balance }} ৳</h3>
+</div>
 
-  <div class="card">
-    <h3>Transfer Money</h3>
-    <input type="text" placeholder="Sender Account">
-    <input type="text" placeholder="Receiver Account">
-    <input type="number" placeholder="Amount">
-    <button>Transfer</button>
-  </div>
+<hr>
 
-  <div class="card">
-    <h3>Transaction History</h3>
-    <button>Load Transactions</button>
-  </div>
+<h2>Transfer Money 💸</h2>
+
+<form method="POST" action="/transfer">
+    <input type="text" name="receiver" placeholder="Receiver Account" required>
+    <input type="number" name="amount" placeholder="Amount" required>
+    <button type="submit">Send</button>
+</form>
+
+<hr>
+
+<h2>Transactions 📜</h2>
+
+<table border="1">
+    <tr>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Amount</th>
+        <th>Transaction ID</th>
+    </tr>
+
+    {% for t in transactions %}
+    <tr>
+        <td>{{ t[0] }}</td>
+        <td>{{ t[1] }}</td>
+        <td>{{ t[2] }}</td>
+        <td>{{ t[3] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<a class="logout" href="/logout">Logout</a>
 
 </div>
 

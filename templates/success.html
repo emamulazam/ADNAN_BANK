@@ -3,11 +3,81 @@
 <head>
     <title>Account Created</title>
     <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+            color: #1f2937;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #16a34a;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            min-width: 280px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .subtext {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="container">
-    <h2>🎉 Signup Successful!</h2>
+
+    <div class="icon">🎉</div>
+
+    <h2>Account Created Successfully</h2>
+    <p class="subtext">Welcome to your new banking account</p>
 
     <div class="card">
         <p><b>Name:</b> {{ name }}</p>
@@ -17,6 +87,7 @@
     <a href="/login">
         <button>Go to Login</button>
     </a>
+
 </div>
 
 </body>

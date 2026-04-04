@@ -2,18 +2,112 @@
 <html>
 <head>
   <title>Simple Bank</title>
-  <link rel="stylesheet" href="/static/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fb;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      width: 360px;
+      border: 1px solid #e6e6e6;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 26px;
+      color: #222;
+    }
+
+    p {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .buttons button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .signup-btn {
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+      color: white;
+    }
+
+    .signup-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
+    }
+
+    .login-btn {
+      background: #eef3ff;
+      color: #0072ff;
+      border: 1px solid #d0dcff;
+    }
+
+    .login-btn:hover {
+      background: #e0e9ff;
+      transform: scale(1.05);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+  </style>
 </head>
+
 <body>
 
 <div class="container">
+  <div class="card">
 
-  <h1>🏦 Welcome to Azam Bank</h1>
-  <p>Simple secure online banking system</p>
+    <h1>🏦 Welcome to Bank of Adnan</h1>
+    <p>Simple, secure, and fast online banking system</p>
 
-  <a href="/signup"><button>Create Account</button></a>
-  <a href="/login"><button>Login</button></a>
+    <div class="buttons">
+      <a href="/signup">
+        <button class="signup-btn">Create Account</button>
+      </a>
 
+      <a href="/login">
+        <button class="login-btn">Login</button>
+      </a>
+    </div>
+
+  </div>
 </div>
 
 </body>
