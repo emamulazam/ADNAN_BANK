@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  margin: 0;
+}
+
+/* =========================
+   CENTER AUTH PAGES (login/signup)
+========================= */
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* =========================
+   LANDING PAGE
+========================= */
+.home-body {
+  text-align: center;
+  padding-top: 120px;
+}
+
+/* =========================
+   CONTAINER CARD
+========================= */
+.container {
+  width: 350px;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   INPUTS
+========================= */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  width: 100%;
+  padding: 10px;
+  background: #22c55e;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+.card {
+  background: #334155;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
